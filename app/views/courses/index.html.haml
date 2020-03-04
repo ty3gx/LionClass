@@ -231,6 +231,8 @@
       %nav
         %ul
           %li
+            = link_to "All Classes", new_course_path
+          %li
             %a{:href => "link"} Past Classes
           %li
             %a{:href => "link"} Degree Audit
@@ -464,4 +466,4 @@
         %label{:for => "call_num"} Call #:
         %input#call_num{:name => "Call #", :type => "text"}/
       #box4{:style => "float:left;width:20%;margin-right:2%"}
-        %button{:onclick => "window.location.href = 'courses/new';", :type => "button"} Search
+        = link_to "Search", new_course_path
