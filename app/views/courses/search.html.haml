@@ -36,7 +36,7 @@
     %tbody
       - @courses.each do |course|
         %tr
-          %td= link_to course.call, new_course_path
+          %td= link_to course.call, course_info_path
           %td= course.number + " sec: " + course.sec.to_s + " "+ course.title
           %td= course.instructor
           %td= course.day
