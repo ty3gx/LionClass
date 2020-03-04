@@ -14,7 +14,11 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    
+    @courses = Course.all
+  end
+
+  def search
+    @courses = Course.all
   end
 
   # GET /courses/1/edit
@@ -72,7 +76,4 @@ class CoursesController < ApplicationController
       params.fetch(:course, {})
     end
 
-    def search
-      
-    end
 end
