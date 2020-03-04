@@ -21,6 +21,10 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def course_info
+  end
+
+  
   # GET /courses/1/edit
   def edit
   end

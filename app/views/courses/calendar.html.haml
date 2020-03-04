@@ -1,0 +1,467 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    :css
+      body {
+          opacity: 0.9;
+          background-image: url('https://www.jakpost.travel/imgfiles/full/55/554021/columbia-university-wallpaper.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover
+        }
+      
+        table {
+          font-family: sans-serif;
+          width: 100%;
+          border-spacing: 0;
+          border-collapse: separate;
+          table-layout: fixed;
+          margin-bottom: 0px;
+        }
+        table thead tr th {
+          background: #626E7E;
+          color: #d1d5db;
+          padding: 0.5em;
+          overflow: hidden;
+        }
+        table thead tr th:first-child {
+          border-radius: 0 0 0 0;
+        }
+        table thead tr th:last-child {
+          border-radius: 0 0  0 0;
+        }
+        table thead tr th .day {
+          display: block;
+          font-size: 1.2em;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          margin: 0 auto 5px;
+          padding: 5px;
+          line-height: 1.8;
+        }
+      
+        table thead tr th .day.active {
+          background: #d1d5db;
+          color: #626E7E;
+        }
+        table thead tr th .short {
+          display: none;
+        }
+      
+        table thead tr th i {
+          vertical-align: middle;
+          font-size: 2em;
+        }
+      
+        table tbody tr {
+          background: #d1d5db;
+        }
+      
+        table tbody tr:nth-child(odd) {
+          background: #c8cdd4;
+        }
+      
+        table tbody tr:nth-child(4n+0) td {
+          border-bottom: 1px solid #626E7E;
+        }
+      
+        table tbody tr td.class1 {
+          padding: 5px;
+          border-style:groove;
+          text-shadow: 1px;
+          color: #000;
+          background: #ff9999;
+          border-top: 1.5px solid #000;
+          border-bottom: 1.5px solid #000;
+          border-left: 1.5px solid #000;
+          border-right: 1.5px solid #000;
+          border-collapse: collapse;
+          font-size: .9em;
+        }
+      
+        table tbody tr td.class2 {
+          padding: 5px;
+          border-style:groove;
+          text-shadow: 1px;
+          color: #000;
+          background: #11ee11;
+          border-top: 1.5px solid #000;
+          border-bottom: 1.5px solid #000;
+          border-left: 1.5px solid #000;
+          border-right: 1.5px solid #000;
+          border-collapse: collapse;
+          font-size: .9em;
+        }
+      
+        table tbody tr td.class3 {
+          padding: 5px;
+          border-style:groove;
+          text-shadow: 1px;
+          color: #000;
+          background: #ffbb00;
+          border-top: 1.5px solid #000;
+          border-bottom: 1.5px solid #000;
+          border-left: 1.5px solid #000;
+          border-right: 1.5px solid #000;
+          border-collapse: collapse;
+          font-size: .9em;
+        }
+      
+        table tbody tr td.class4 {
+          padding: 5px;
+          border-style:groove;
+          text-shadow: 1px;
+          color: #000;
+          background: #00bbff;
+          border-top: 1.5px solid #000;
+          border-bottom: 1.5px solid #000;
+          border-left: 1.5px solid #000;
+          border-right: 1.5px solid #000;
+          border-collapse: collapse;
+          font-size: .9em;
+        }
+      
+        table tbody tr td {
+          text-align: center;
+          vertical-align: middle;
+          border-left: 1px solid #626E7E;
+          position: relative;
+          height: 17px;
+          cursor: pointer;
+        }
+        table tbody tr td:last-child {
+          border-right: 1px solid #626E7E;
+        }
+        table tbody tr td.hour {
+          font-size: 1.25em;
+          padding: 0;
+          color: #626E7E;
+          background: #fff;
+          border-bottom: 1px solid #626E7E;
+          border-collapse: separate;
+          min-width: 100px;
+          cursor: default;
+        }
+        table tbody tr td.hour span {
+          display: block;
+        }
+        @media (max-width: 60em) {
+          table thead tr th .long {
+            display: none;
+          }
+          table thead tr th .short {
+            display: block;
+          }
+          table tbody tr td.hour span {
+            transform: rotate(270deg);
+            -webkit-transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+          }
+        }
+      
+        td a {
+          display: block; 
+      }
+      
+      
+      
+      
+      
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        
+        
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 20%;
+          height: 560px;
+          border: 1px solid #ccc;
+          font-size: 14px;
+          line-height: 1.8;
+          background-color: #fff;
+        }
+        
+        /* Style the list inside the menu */
+        nav ul {
+          margin: 8px;
+        }
+        
+        article {
+          float: left;
+          padding: 20px;
+          width: 70%;
+          background-color: #f1f1f1;
+          height: 560px; /* only for demonstration, should be removed */
+        }
+        
+        /* Clear floats after the columns */
+        section:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        /* Style the footer */
+        footer {
+          width: 90%;
+          background-color: #FFF;
+          padding: 10px;
+          color: black;
+          height: 150px;
+        }
+      
+        a { 
+          color: #000; 
+        }
+  %body
+    %header
+      %h1{:style => "color:white;"} Spring 2020
+    %section
+      %nav
+        %ul
+          %li
+            = link_to "All Classes", new_course_path
+          %li
+            %a{:href => "link"} Past Classes
+          %li
+            %a{:href => "link"} Degree Audit
+          %li
+            %a{:href => "link"} Log out
+      %article
+        %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+        %table
+          %thead
+            %tr
+              %th
+              %th
+                %span.long Monday
+                %span.short Mon
+              %th
+                %span.long Tuesday
+                %span.short Tue
+              %th
+                %span.long Wendsday
+                %span.short We
+              %th
+                %span.long Thursday
+                %span.short Thur
+              %th
+                %span.long Friday
+                %span.short Fri
+          %tbody
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 10:00
+              %td
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+              %td.class3{:rowspan => "10"}
+                %a{:href => "link_to_class"}
+                  %span
+                    SECURITY II
+                    %br/
+                    %br/
+                    10:10AM-12:40PM
+                    %br/
+                    545 MUDD
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 11:00
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 12:00
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td.class2{:rowspan => "7"}
+                %a{:href => "link_to_class"}
+                  %span
+                    ADVANCED SOFTWARE ENGINEERING
+                    %br/
+                    %br/
+                    12:10PM-2:00PM
+                    %br/
+                    411 INT'L AFFAIR
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 1:00
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.class1{:rowspan => "5"}
+                %a{:href => "link_to_class"}
+                  %span
+                    INTRODUCTION TO DATABASES
+                    %br/
+                    %br/
+                    1:10PM-2:25PM
+                    %br/
+                    501N WEST CORNR
+              %td
+              %td.class1{:rowspan => "5"}
+                %a{:href => "link_to_class"}
+                  %span
+                    INTRODUCTION TO DATABASES
+                    %br/
+                    %br/
+                    1:10PM-2:25PM
+                    %br/
+                    501N WEST CORNR
+              %td.class4{:rowspan => "10"}
+                %a{:href => "link_to_class"}
+                  %span
+                    NATURAL LANGUAGE PROCESSING
+                    %br/
+                    %br/
+                    1:10PM-3:40PM
+                    %br/
+                    402 CHANDLER
+            %tr
+              %td
+            %tr
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 2:00
+              %td
+              %td
+            %tr
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 3:00
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td.hour{:rowspan => "4"}
+                %span 4:00
+              %td
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+              %td
+            %tr
+              %td
+              %td
+              %td
+              %td
+              %td
+    %footer
+      %p{:style => "font-size:20px;"} Search Classes
+      #box1{:style => "float:left;width:20%; margin-right:2%"}
+        %label{:for => "cars"} Select Term:
+        %select#term
+          %option{:value => "spring_20"} Spring 2020
+      #box2{:style => "float:left;width:20%;margin-right:2%"}
+        %label{:for => "cars"} Major:
+        %select#cars
+          %option{:value => "coms"} Computer Science
+      #box3{:style => "float:left;width:20%;margin-right:2%"}
+        %label{:for => "call_num"} Call #:
+        %input#call_num{:name => "Call #", :type => "text"}/
+      #box4{:style => "float:left;width:20%;margin-right:2%"}
+        = link_to "Search", search_path
