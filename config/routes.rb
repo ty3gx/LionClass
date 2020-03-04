@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :courses
+  root 'courses#index'
 
   get 'search', to: 'courses#search'
   # The priority is based upon order of creation: first created -> highest priority.
