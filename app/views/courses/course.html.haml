@@ -1,0 +1,194 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "", :rel => "stylesheet"}/
+    :css
+      .entire_div{
+      	width: 80%;
+      	margin-left: 10%;
+      }
+      
+      .background_img{
+      	background-image: url('1.jpg');
+      	background-repeat: no-repeat;
+          background-size: cover;
+          background-color: rgba(255,255,255,0.5);
+          background-blend-mode: lighten;
+      }
+      
+      .Theform{
+      	background-color: lightblue;
+      }
+      .evaluation{
+      	overflow-y:auto;
+      	width: 100%;
+          height: 120px;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .cell_color1{
+      	background-color: white;
+      }
+      
+      .cell_color2{
+      	background-color: lightgrey;
+      }
+      
+      .cell_color3{ /*light blue*/
+      	background-color: rgb(204, 230, 255);
+      }
+      .cell_color4{ /*very light grey*/
+      	background-color: rgb(242, 242, 242);
+      }
+      .cell_color5{ /*dark blue*/
+      	background-color: rgb(0, 79, 153);
+      }
+      .cell_color6{ /*grey*/
+      	background-color: rgb(166, 166, 166);
+      }
+      .cell_color7{ /*another light blue*/
+      	background-color: rgb(179, 218, 255);
+      }
+      
+      .title{
+      	height: 100px;
+      	background-color: lightblue;
+      	margin-bottom: 20px;
+      }
+      .center {
+      	/*margin: auto;*/
+      	padding-left: 40%;
+      	padding-top: 30px;
+      	font-size: 50px;
+      	font-weight: bold;
+      }
+      
+      .add_button {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #60a3bc;
+      padding: 10px;
+      border-radius: 30px;
+      display: inline-block;
+      border: none;
+      }
+      
+      .add_button:hover {
+      text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      transition: all 0.4s ease 0s;
+      }
+  %body.background_img
+    %div
+      .title
+        .center LionClass
+      .entire_div
+        %form.Theform
+          %table.DataGrid{:border => "0", :cellpadding => "3", :cellspacing => "1", :width => "100%"}
+            %tbody
+              %tr.clsDataGridTitle
+                %td.cell_color5{:colspan => "6"}
+                  %b
+                    %font{:color => "white"} Add or Check Class Status
+              %tr.clsDataGridHeader
+                %td.cell_color6
+                  %font{:color => "white"} Call#
+                %td.cell_color2 Class/Title
+                %td.cell_color2 Points
+                %td.cell_color2 Grade Option
+                %td.cell_color2 Instructor Permission
+                %td.cell_color2 Status/Action
+              %tr.clsDataGridData
+                %td.cell_color3{:rowspan => "3"} 10025
+                %td.cell_color1
+                  COMS 4705 S 001
+                  %br/
+                  %font.clnm NATURAL LANGUAGE PROCESSI
+                %td.cell_color1
+                  3.00
+                  %input{:name => "tran[1]_fixp", :type => "hidden", :value => "   3.00"}/
+                %td.cell_color1
+                  Grade Only
+                %td.cell_color1
+                  Not Required
+                %td.cell_color1
+                  No Appointment
+              %tr.cell_color2
+                %td Instructor
+                %td.cell_color2 Day
+                %td.cell_color2 Time/Location
+                %td.cell_color2 Start/End
+                %td.cell_color2 Occupancy
+              %tr.clsDataGridData
+                %td.cell_color4{:rowspan => "1"} Bauer, Daniel
+                %td.cell_color4 Mo  We
+                %td.nw.cell_color4
+                  5:30pm-8:40pm
+                  %br/
+                  BTBA RTBA
+                %td.cell_color4
+                  05/26/2020
+                  %br>/
+                  07/02/2020
+                %td.cell_color4{:align => "middle", :rowspan => "1"}
+                  0/100
+                  %br/
+              %tr.cell_color7
+                %td{:colspan => "6"}
+                  Although you cannot register for this class, you can add it to your Wish List. You can later register for the class directly from your Wish List if the class becomes available to you or join the waiting list if there is one.
+                  = succeed "\u{a0}" do
+                    %br/
+                  %br/
+                  %input.add_button{:name => "tran[1]_act", :onclick => "var ip=document.query2.elements[\"tran[1]_INSTRPERM\"]; if(ip && ip.selectedIndex == 0) { window.alert(\"You cannot register for the class without the Instructor’s permission.\"); return false;} else return true; ", :type => "submit", :value => "Add Class To Wish List"}/
+              %tr.cell_color3
+                %td{:colspan => "6"}
+                  %p
+                    %b COMSS4705D
+                    Prerequisites: COMS W3134 or COMS W3136 or COMS W3137 or or the instructor's permission.
+                    Prerequisites: (COMS W3134 or COMS W3136 or COMS W3137) or the instructor's permission. Computational approaches to natural language generation and understanding. Recommended preparation: some previous or concurrent exposure to AI or Machine Learning. Topics include information extraction, summarization, machine translation, dialogue systems, and emotional speech. Particular attention is given to robust techniques that can handle understanding and generation for the large amounts of text on the Web or in other large corpora. Programming exercises in several of these areas.
+              %div
+                %tr
+                  %td.cell_color2{:colspan => "6"}
+                    %b Professor Evaluation
+                    %br/
+                %tr
+                  %td.cell_color2{:colspan => "6"}
+                    Bauer, Daniel
+                    %br/
+                    %a{:href => "http://www.culpa.info/courses/4903"} [COMS W4705]
+                    Natural Language Processing
+                %tr
+                  %td.cell_color4{:colspan => "6"}
+                    .evaluation
+                      Professor Bauer is an amazing lecturer who cares very much about his students. I took his course in Summer 19' (tighter packed schedule) and it was worth it. His German accent made the three-hour lectures tolerable, but it was his passion for NLP that really drove the class forward. There is some math that comes with the subject but Prof. Bauer explained everything until he felt the entire class grasped the concept. My favorite part was when the class worked through NLP problems together during class, solving theory-based problems that helped make sense of the assigned programming assignments. If you get a chance to take NLP with Prof. Bauer take it! I for one took this class in the summer on top of an already heavy schedule but always found the material satisfying. His problem sets force you to connect the dots from theory to application but it was always satisfying coming to a solution. Sometimes, there were clever optimizations that could be made to improve your code to run in a fraction of the time. It is worth noting that this is the semester I started to really learn Python, so if you already have some familiarity you should be good. The exams were challenging but if you attend class and study diligently you should be okay. This was one of my favorite classes here at Columbia and I am eager to learn more about the NLP field because of Prof. Bauer.
+                      
+                      Workload:
+                      \- 5 Problem Sets
+                      \- 1 Midterm
+                      \- 1 Final
+                %tr
+                  %td.cell_color2{:colspan => "6"}
+                    %b Other Professor Evaluations
+                    %br/
+                %tr
+                  %td.cell_color2{:colspan => "6"}
+                    McKeown, Kathleen
+                    %br/
+                    %a{:href => "http://www.culpa.info/courses/4903"} [COMS W4705]
+                    Natural Language Processing
+                %tr
+                  %td.cell_color4{:colspan => "6"}
+                    .evaluation
+                      The other reviews are pretty accurate on the structure of the course (the flipped class room) and the workload, so I'll only write what was different about this semester and what I didn't like.
+                      
+                      This semester, Collins brought in new materials in the last three week; Feedforward Neural Network and computational graphs. While I liked how he updated his syllabus from the last one, the execution was simply bad. I don't what might have been the issue for him, but after midterms, the course became utterly disorganized. Almost everything was done at the very last minutes. For instance, the videos we were supposed to watch before each flipped classroom sessions were uploaded less than 24 hours prior to my session, making it impossible to studying them thoroughly. And all of the sudden, assignment 3 became analytical part only assignment and assignment 4 became programming part only assignment. While this could a perfectly reasonable thing, but I'm sure I wasn't the only one who felt this was a rushed decision.
+                      
+                      To conclude, Collins is a very knowledgeable man on Natural Language Processing and probably a very nice person. However, how he handled the course after the midterm was simply not acceptable. Just be aware that logistics of the course for Fall 2017 was an utter disaster.
+                      
+                      Workload:
+                      4 Assignments; we were supposed to have analytical part and programming part for all of the assignments, but ssignment 3 became analytical part only assignment and assignment 4 became programming part only assignment.
+                      Midterm and Final
