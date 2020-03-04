@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get 'course_info', to: 'courses#course_info' 
 
   get 'calendar', to: 'courses#calendar'
+  
   get 'index', to: 'courses#index'
+
+  get 'past_classes', to: 'courses#past_classes'
+
+  get 'degree_audit', to: 'courses#degree_audit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

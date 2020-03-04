@@ -231,11 +231,11 @@
       %nav
         %ul
           %li
-            = link_to "All Classes", new_course_path
+            = link_to "All Classes", search_path
           %li
-            %a{:href => "link"} Past Classes
+            = link_to "Past classes", past_classes_path
           %li
-            %a{:href => "link"} Degree Audit
+            = link_to "Degree Audit", degree_audit_path
           %li
             / %a{:href => "link"} Log out
             = link_to "Log out", index_path
