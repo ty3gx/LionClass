@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   get 'degree_audit', to: 'courses#degree_audit'
 
   get '/' => 'users#index'
-  # post '/sessions' => 'sessions#create'
+
+  post 'register' => 'users#create'
+
+  post '/sessions' => 'sessions#create'
+
+  get 'register' => 'courses#register'
   # post '/users' => 'users#create'
   # 'calendar', to: 'courses#calendar'  repeated as shown above
 

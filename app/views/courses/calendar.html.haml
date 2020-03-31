@@ -238,7 +238,7 @@
             = link_to "Degree Audit", degree_audit_path
           %li
             / %a{:href => "link"} Log out
-            = link_to "Log out", index_path
+            = link_to "Log out", {controller: "users", action: "index"}
       %article
         %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
         %table
