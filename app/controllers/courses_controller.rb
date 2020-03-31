@@ -38,17 +38,17 @@ class CoursesController < ApplicationController
     elsif title == "" && prof == ""
       @courses = Course.where("call = " + call)
     elsif call == "" && title == "" 
-      @courses = Course.where("instructor LIKE ?", '%' + prof + '%')
+      @courses = Course.where("UPPER(instructor) LIKE UPPER(?)", '%' + prof + '%')
     elsif call == "" && prof == "" 
-      @courses = Course.where("title LIKE ? OR number LIKE ?", '%' + title + '%', '%' + title + '%')
+      @courses = Course.where("UPPER(title) LIKE UPPER(?) OR UPPER(number) LIKE UPPER(?)", '%' + title + '%', '%' + title + '%')
     elsif call == ""
-      @courses = Course.where("(title LIKE ? OR number LIKE ?) AND instructor LIKE ?" , '%' + title + '%', '%' + title + '%', '%' + prof + '%')
+      @courses = Course.where("(UPPER(title) LIKE UPPER(?) OR UPPER(number) LIKE UPPER(?)) AND UPPER(instructor) LIKE UPPER(?)" , '%' + title + '%', '%' + title + '%', '%' + prof + '%')
     elsif title == ""
-      @courses = Course.where("call = ? AND instructor LIKE ?" , call.to_i, '%' + prof + '%')
+      @courses = Course.where("call = ? AND UPPER(instructor) LIKE UPPER(?)" , call.to_i, '%' + prof + '%')
     elsif prof == ""
-      @courses = Course.where("call = ? AND (title LIKE ? OR number LIKE ?)" , call.to_i, '%' + title + '%', '%' + title + '%')
+      @courses = Course.where("call = ? AND (UPPER(title) LIKE UPPER(?) OR UPPER(number) LIKE UPPER(?))" , call.to_i, '%' + title + '%', '%' + title + '%')
     else
-      @courses = Course.where("call = ? AND (title LIKE ? OR number LIKE ?) AND instructor LIKE ?" , call.to_i, '%' + title + '%', '%' + title + '%', '%' + prof + '%')
+      @courses = Course.where("call = ? AND (UPPER(title) LIKE UPPER(?) OR UPPER(number) LIKE UPPER(?)) AND UPPER(instructor) LIKE UPPER(?)" , call.to_i, '%' + title + '%', '%' + title + '%', '%' + prof + '%')
         
     end
     
