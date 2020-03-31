@@ -1,20 +1,28 @@
 Rails.application.routes.draw do
   resources :courses
-  root 'courses#index'
+  resources :users
+  root 'users#index'
 
   get 'search', to: 'courses#search' # url -> courses/method
 
-  get 'login', to: 'courses#login'
+  get 'login', to: 'courses#index'
 
   get 'course_info', to: 'courses#course_info' 
 
   get 'calendar', to: 'courses#calendar'
   
-  get 'index', to: 'courses#index'
-
+  # get 'index', to: 'courses#index'
+  
   get 'past_classes', to: 'courses#past_classes'
 
   get 'degree_audit', to: 'courses#degree_audit'
+
+  get '/' => 'users#index'
+  # post '/sessions' => 'sessions#create'
+  # post '/users' => 'users#create'
+  # 'calendar', to: 'courses#calendar'  repeated as shown above
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -24,7 +32,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  # Example of named route that can be invoked with purchase_surl(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
