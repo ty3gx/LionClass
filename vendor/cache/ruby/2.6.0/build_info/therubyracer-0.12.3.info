@@ -1,0 +1,3 @@
+--with-v8-dir=
+--with-v8-include=/include/
+--with-v8-lib=/lib/

@@ -451,18 +451,15 @@
               %td
               %td
               %td
-    %footer
-      %p{:style => "font-size:20px;"} Search Classes
-      #box1{:style => "float:left;width:20%; margin-right:2%"}
-        %label{:for => "cars"} Select Term:
-        %select#term
-          %option{:value => "spring_20"} Spring 2020
-      #box2{:style => "float:left;width:20%;margin-right:2%"}
-        %label{:for => "cars"} Major:
-        %select#cars
-          %option{:value => "coms"} Computer Science
-      #box3{:style => "float:left;width:20%;margin-right:2%"}
-        %label{:for => "call_num"} Call #:
-        %input#call_num{:name => "Call #", :type => "text"}/
-      #box4{:style => "float:left;width:20%;margin-right:2%"}
-        = link_to "Search", search_path
+      
+    %footer 
+      %h2
+        Search for class
+
+      %form{:action => "/courses", :method => 'POST'}
+        %input{:type => 'hidden', :name => 'authenticity_token', :value => '<%=form_authenticity_token%>' }
+        %input#call_num{:type=>'call_num', :name => 'course[call]', :placeholder => "Call # (numbers only)", :include_blank => true, :pattern => "[0-9]+", :type => "text"}
+        %input#call_num{:type=>'title', :name => 'course[title]', :placeholder => "Course Title / #", :include_blank => true, :type => "text"}
+        %input#call_num{:type=>'prof', :name => 'course[prof]', :placeholder => "Instructor", :include_blank => true, :type => "text"}
+        %input{:type => "submit", :name => 'submit', :class=>'submit', :value => "Search"} 
+

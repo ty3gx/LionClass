@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   # GET /courses
@@ -17,9 +18,6 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-  def search
-    @courses = Course.all
-  end
 
   def course_info
   end
@@ -32,52 +30,35 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
-
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    call = course_params[:call]
+    title = course_params[:title]
+    prof = course_params[:prof]
+    if call == "" && title == "" && prof == ""
+      @courses = Course.all
+    elsif title == "" && prof == ""
+      @courses = Course.where("call = " + call)
+    elsif call == "" && title == "" 
+      @courses = Course.where("instructor LIKE ?", '%' + prof + '%')
+    elsif call == "" && prof == "" 
+      @courses = Course.where("title LIKE ? OR number LIKE ?", '%' + title + '%', '%' + title + '%')
+    elsif call == ""
+      @courses = Course.where("(title LIKE ? OR number LIKE ?) AND instructor LIKE ?" , '%' + title + '%', '%' + title + '%', '%' + prof + '%')
+    elsif title == ""
+      @courses = Course.where("call = ? AND instructor LIKE ?" , call.to_i, '%' + prof + '%')
+    elsif prof == ""
+      @courses = Course.where("call = ? AND (title LIKE ? OR number LIKE ?)" , call.to_i, '%' + title + '%', '%' + title + '%')
+    else
+      @courses = Course.where("call = ? AND (title LIKE ? OR number LIKE ?) AND instructor LIKE ?" , call.to_i, '%' + title + '%', '%' + title + '%', '%' + prof + '%')
+        
     end
+    
+    render action: "search"
   end
 
-  # PATCH/PUT /courses/1
-  # PATCH/PUT /courses/1.json
-  def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /courses/1
-  # DELETE /courses/1.json
-  def destroy
-    @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.fetch(:course, {})
+      params.require(:course).permit(:call, :title, :prof)
     end
 
 end

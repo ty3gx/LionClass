@@ -2,13 +2,13 @@
 
 
 %header
-  %h2{:style => "color:white;"} Search result for "COMS"
+  %h2{:style => "color:white;"} Search result:
 
 %head
   %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   :css
     body {
-      opacity: 0.7;
+      opacity: 0.9;
       background-image: url('https://www.jakpost.travel/imgfiles/full/55/554021/columbia-university-wallpaper.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -34,15 +34,19 @@
         %th Start/End
         %th Status
     %tbody
-      - @courses.each do |course|
+      - if @courses.blank?
         %tr
-          %td= link_to course.call, course_info_path
-          %td= course.number + " sec: " + course.sec.to_s + " "+ course.title
-          %td= course.instructor
-          %td= course.day
-          %td= course.time + " " + course.location
-          %td= course.period
-          %td= course.status
+          %td= "No result for your search"
+      - else
+        - @courses.each do |course|
+          %tr
+            %td= link_to course.call, course_info_path
+            %td= course.number + " sec: " + course.sec.to_s + " "+ course.title
+            %td= course.instructor
+            %td= course.day
+            %td= course.time + " " + course.location
+            %td= course.period
+            %td= course.status
 
 
 
