@@ -285,15 +285,15 @@
           %div
             %input{:type => 'hidden', :name => 'authenticity_token', :value => '<%=form_authenticity_token%>' }
           %div
-            %input{:type=>'name', :name => 'user[name]', :placeholder => "name", :required => "", :type => "text"}/
+            %input{:id=>'name', :name => 'user[name]', :placeholder => "name", :required => "", :type => "text"}/
           %div
-            %input{:type=>'email', :name => 'user[email]', :placeholder => "email", :required => "", :type => "text"}/
+            %input{:id=>'email', :name => 'user[email]', :placeholder => "email", :required => "", :type => "text"}/
           %div
-            %input{:type=>'password', :name => 'user[password]', :placeholder => "password", :required => "", :type => "password"}/
+            %input{:id=>'password', :name => 'user[password]', :placeholder => "password", :required => "", :type => "password"}/
           %div
-            %input{:type=>'password', :name => 'user[password_confirmation]', :placeholder => "password_confirmation", :required => "", :type => "password"}/
+            %input{:id=>'password_confirm', :name => 'user[password_confirmation]', :placeholder => "password_confirmation", :required => "", :type => "password"}/
           %div
-            %input{:type => "submit", :name => 'submit', :class=>'submit', :value => "Register"} 
+            %input{:type => "submit", :name => 'Register', :class=>'submit', :value => "Register"} 
           %div{:class => 'errors'}
             - if flash[:register_errors]
               = flash[:register_errors].each do |error|

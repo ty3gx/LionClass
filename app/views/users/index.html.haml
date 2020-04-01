@@ -284,11 +284,11 @@
           %div
             %input{:type => 'hidden', :name => 'authenticity_token', :value => '<%=form_authenticity_token%>' }
           %div
-            %input#username{:type=>'email', :name => 'login[email]', :placeholder => "Email", :required => "", :type => "text"}/
+            %input{:id=>'email', :name => 'login[email]', :placeholder => "Email", :required => "", :type => "text"}/
           %div
-            %input#password{:type=>'password', :name => 'login[password]', :placeholder => "Password", :required => "", :type => "password"}/
+            %input{:id=>'password', :name => 'login[password]', :placeholder => "Password", :required => "", :type => "password"}/
           %div
-            %input{:type => "submit", :name => 'submit', :class=>'submit', :value => "Log in"} 
+            %input{:type => "submit", :name => 'Login', :class=>'submit', :value => "Log in"} 
             /#box4{:style => "float:left;width:20%;margin-right:2%"}
             /  = link_to "Log in", calendar_path
             / %a{:href => "#"} Lost your password?

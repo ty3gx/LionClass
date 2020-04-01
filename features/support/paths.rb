@@ -13,8 +13,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (LionClass )?home\s?page$/ then '/index'
-    when /^the login page$/ then '/index'
+    when /^the (LionClass )?home\s?page$/ then '/'
+    when /^the login page$/ then '/'
 
     when /^the calendar ?page$/ then '/calendar'
     
@@ -25,6 +25,8 @@ module NavigationHelpers
     when /^the past classes page$/ then '/past_classes'
 
     when /^the degree audit page$/ then '/degree_audit'
+
+    when /^the register ?page$/ then '/register'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
