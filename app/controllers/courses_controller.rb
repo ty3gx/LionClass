@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
         
     end
     
-    render action: "search"
+    render "search"
   end
 
 

@@ -459,8 +459,8 @@
 
       %form{:action => "/courses", :method => 'POST'}
         %input{:type => 'hidden', :name => 'authenticity_token', :value => '<%=form_authenticity_token%>' }
-        %input#call_num{:type=>'call_num', :name => 'course[call]', :placeholder => "Call # (numbers only)", :include_blank => true, :pattern => "[0-9]+", :type => "text"}
-        %input#call_num{:type=>'title', :name => 'course[title]', :placeholder => "Course Title / #", :include_blank => true, :type => "text"}
-        %input#call_num{:type=>'prof', :name => 'course[prof]', :placeholder => "Instructor", :include_blank => true, :type => "text"}
-        %input{:type => "submit", :name => 'submit', :class=>'submit', :value => "Search"} 
+        %input{:id=>'call_num', :name => 'course[call]', :placeholder => "Call # (numbers only)", :include_blank => true, :pattern => "[0-9]+", :type => "text"}
+        %input{:id=>'title', :name => 'course[title]', :placeholder => "Course Title / #", :include_blank => true, :type => "text"}
+        %input{:id=>'prof', :name => 'course[prof]', :placeholder => "Instructor", :include_blank => true, :type => "text"}
+        %input{:type => "submit", :name => 'SearchBtn', :class=>'submit', :value => "Search"} 
 

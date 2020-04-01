@@ -14,7 +14,8 @@ module NavigationHelpers
     case page_name
 
     when /^the (LionClass )?home\s?page$/ then '/'
-    when /^the login page$/ then '/'
+      
+    when /^the login page$/ then '/users'
 
     when /^the calendar ?page$/ then '/calendar'
     
