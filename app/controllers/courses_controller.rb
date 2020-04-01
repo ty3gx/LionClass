@@ -18,6 +18,9 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
+  def search
+    @courses = Course.all
+  end
 
   def course_info
   end

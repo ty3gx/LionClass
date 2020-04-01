@@ -22,6 +22,7 @@
       background: white;
     }
 
+
 %body
   %table{:style => "width:90%"}
     %thead
@@ -47,6 +48,8 @@
             %td= course.time + " " + course.location
             %td= course.period
             %td= course.status
+
+    = link_to "Go Back", calendar_path, {:style => 'color:#FFFFFF; font-size: 1.2em;'}
 
 
 
