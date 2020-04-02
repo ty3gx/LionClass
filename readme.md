@@ -1,5 +1,7 @@
 LionClass
 
+The Heroku link to our application is:
+
 == Currently Implemented and Tested Features ==
 *Cucumber Feature Tests: if the chromedrive is not already installed*
 *Please install it first by: brew cask install chromedriver*
