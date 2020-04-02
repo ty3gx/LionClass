@@ -1,6 +1,6 @@
 LionClass
 
-The Heroku link to our application is:
+The Heroku link to our application is: https://nameless-coast-33211.herokuapp.com/
 
 == Currently Implemented and Tested Features ==
 *Cucumber Feature Tests: if the chromedrive is not already installed*
